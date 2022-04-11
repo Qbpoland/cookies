@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="arkusz.css">
+    <title>Jakub Stasuiuk</title>
+</head>
+<body>
+    <div id="cookies-message">
+        Ta strona używa ciasteczek 
+   <button 
+        onclick="accept();" id="accept-cookies">Akceptuje</a>
+        
+   </button>
+   </div>
+  <script>
+    function accept() {
+            document.cookie = "cookieAccept=true";
+            window.location.reload(true);
+        };
+    function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        };
+     if (getCookie("cookieAccept") == "true") {
+            document.getElementById("cookies-message").style.display = "none";
+    };
+    window.onload = getCookie;
+  </script>
+
+
+</body>
+</html>
